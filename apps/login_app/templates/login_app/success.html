@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/success.css">
+</head>
+<body>
+    <h1>Welcome, {{user.alias}}</h1>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message %} class="{{ message }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <a href="/logout">Logout</a><br>
+    <h2>{{pokernumber}} people have poked you!</h2>
+    {%for poker in pokers%}
+    <p>{{poker.alias}} has poked you {{pokecount}} times.</p>
+    {%endfor%}
+    <tbody>
+        <thead>
+            <th>Name</th>
+            <th>Alias</th>
+            <th>Email</th>
+            <th>Poke History</th>
+            <th>Action</th>
+        </thead>
+        <br>
+        {%for user in other_users%}
+        <tr>
+            <td>{{user.name}}</td>
+            <td>{{user.alias}}</td>
+            <td>{{user.email_address}}</td>
+            <td>{{user.history}}</td>
+            <td><a href="poke/{{user.id}}">POKE!</a></td>
+        </tr>  
+        <br>
+        {% endfor %}
+    </tbody>
+</body>
+</html>

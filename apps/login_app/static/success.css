@@ -1,0 +1,23 @@
+
+h1{
+	color:blue;
+	size: 1000;
+}
+h2{
+    color:red;
+}
+form{
+	border-width: 10;
+	border-color: pink;
+}
+
+table{
+    margin:10;
+    border-width: 10;
+    border-color: black;
+}
+thead{
+    margin:10;
+    border-width: 10ch;
+    border-color: black;
+}

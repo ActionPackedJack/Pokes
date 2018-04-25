@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/index.css">
+</head>
+<body>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    <h1>Create an account</h1>
+    <form action='/Registration' method='POST'> {% csrf_token %}
+        <label for="name">Name: <input type="text" name="name" id="name"></label><br>
+        <label for="alias">Alias:<input type="text" name="alias" id="alias"></label><br>
+        <label for="email_address">Email:<input type="email_address" name="email_address" id="email_address"></label><br>
+        <label for="password">Password:<input type="password" name="password" id="password"></label><br>
+        <label for="confirm_pw">Confirm Password:<input type="password" name="confirm_pw" id="confirm_pw"></label><br>
+        <input type="submit" value="Register">
+    </form>
+    <h1>Already have an account?  Sign in here</h1>
+    <form action='Login' method='POST'> {% csrf_token %}
+        <label for="email_address">Email:<input type="email_address" name="email_address" id="email_address"></label><br>
+        <label for="password">Password:<input type="password" name="password" id="password"></label><br>
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>
